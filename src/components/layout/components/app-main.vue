@@ -1,6 +1,7 @@
 <template>
   <section
-    id="appContainerMainWaterMark"
+     v-loading="isMicroLoading"
+    element-loading-text="应用加载中..."
     class="app-main"
   >
     <transition name="fade-transform" mode="out-in">
@@ -16,6 +17,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { mapGetters } from 'vuex'
   export default {
     name: 'AppMain',
     components: {
@@ -23,21 +25,16 @@
     },
     data() {
       return {
-        imageList: [],
-        isIframe: false,
-        startLoading: false,
-        recordLoading: false,
-        iframeRemoteUrl: '',
-        iframeRecordUrl: '',
-        announcementVisible: false,
-        nowTime: '',
-        timers: null
+
       }
     },
     computed: {
+      ...mapGetters(['microLoading']),
       isMicroService() {
-        console.log(this.$route);
         return this.$route.meta.isMicro
+      },
+      isMicroLoading() {
+        return !!this.microLoading
       },
     },
     created() {

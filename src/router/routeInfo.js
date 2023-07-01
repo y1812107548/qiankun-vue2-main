@@ -21,11 +21,6 @@ export const constantRouterInfo = [
       }
     ]
   },
-  // {
-  //   path: '/report',
-  //   component: () => import('@/views/statistics-report/visual-report-page'),
-  //   hidden: true
-  // },
   {
     path: '',
     component: Layout,
@@ -57,15 +52,24 @@ export const constantRouterInfo = [
       title:'关于我们',
       isMicro:true
     }
+  },
+  {
+    path:'/order',
+    component:Layout,
+    name:'micro-order',
+    meta:{
+      title:'工单',
+      isMicro:true
+    },
+    children:[
+      {
+        path:'list',
+        name:'micro-list',
+        meta:{
+          title:'工单列表',
+          isMicro:true
+        }
+      }
+    ]
   }
-  // {
-  //   path: '/reset',
-  //   component: () => import('@/views/login/reset-passwords'),
-  //   hidden: true
-  // },
-  // {
-  //   path: '/optCaptcha',
-  //   component: () => import('@/views/login/opt-captcha'),
-  //   hidden: true
-  // }
 ]
